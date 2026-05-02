@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16
+    container_name: logs_dashboard_db
+    environment:
+      POSTGRES_DB: logsdb
+      POSTGRES_USER: logsuser
+      POSTGRES_PASSWORD: logspass
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./backend
+    container_name: logs_dashboard_api
+    environment:
+      DATABASE_URL: postgresql://logsuser:logspass@db:5432/logsdb
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+  web:
+    build:
+      context: ./frontend
+    container_name: logs_dashboard_web
+    environment:
+      API_BASE_URL: http://api:8000
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+
+volumes:
+  pg_data:
