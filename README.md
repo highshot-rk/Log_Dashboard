@@ -152,3 +152,6 @@ alembic upgrade head
 - [x] Bonus: Unit/integration tests
 
 ## Results
+<img width="950" height="770" alt="image" src="https://github.com/user-attachments/assets/b9ad35db-ace7-444b-b38d-b51ff84e3519" />
+<img width="933" height="410" alt="image" src="https://github.com/user-attachments/assets/2492cfc5-468f-4f7e-97c7-5ad1acafa490" />
+
