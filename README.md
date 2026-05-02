@@ -150,3 +150,5 @@ alembic upgrade head
 - [x] Bonus: CSV export
 - [x] Bonus: Severity histogram
 - [x] Bonus: Unit/integration tests
+
+## Results
